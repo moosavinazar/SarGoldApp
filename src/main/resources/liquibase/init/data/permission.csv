@@ -1,0 +1,5 @@
+id;name
+1;OP_SUPER_ADMIN
+2;OP_ADMIN
+3;OP_ACC
+4;OP_USER

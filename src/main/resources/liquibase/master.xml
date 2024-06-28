@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <include file="liquibase/init/init_schema.xml" relativeToChangelogFile="false"/>
+
+    <include file="liquibase/init/added_entity_city.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_entity_person.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_entity_user.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_entity_group.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_entity_permission.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_entity_bank.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_entity_laboratory.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_entity_audience.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_entity_refresh_token.xml" relativeToChangelogFile="false"/>
+
+    <include file="liquibase/init/added_constraints_user.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_constraints_group.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_constraints_permission.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_constraints_audience.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_constraints_refresh_token.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/init/added_constraints_person.xml" relativeToChangelogFile="false"/>
+
+    <include file="liquibase/init/data/load_initial_data.xml" relativeToChangelogFile="false"/>
+
+</databaseChangeLog>

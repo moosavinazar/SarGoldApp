@@ -1,0 +1,49 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="SAR SOFT" id="entity_user">
+        <createTable tableName="auth_user">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="auth_user_pkey"/>
+            </column>
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="locked" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="NVARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expired" type="TIMESTAMP WITHOUT TIME ZONE" defaultValue="2025-01-02 18:50:53">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="NVARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="credential" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_id" type="BIGINT">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="code" type="NVARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="SAR SOFT" id="user_groups">
+        <createTable tableName="auth_user_groups">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="auth_user_groups_pkey"/>
+            </column>
+            <column name="groups_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="auth_user_groups_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

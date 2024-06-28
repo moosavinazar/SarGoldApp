@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="SAR SOFT" id="entity_person">
+        <createTable tableName="person">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="person_pkey"/>
+            </column>
+            <column name="name" type="NVARCHAR(255)"/>
+            <column name="cell_phone" type="NVARCHAR(255)"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="email" type="NVARCHAR(255)"/>
+            <column name="gender" type="NVARCHAR(255)"/>
+            <column name="phone_number_one" type="NVARCHAR(255)"/>
+            <column name="phone_number_two" type="NVARCHAR(255)"/>
+            <column name="phone_number_three" type="NVARCHAR(255)"/>
+            <column name="address" type="NVARCHAR(255)"/>
+            <column name="description" type="NVARCHAR(255)"/>
+            <column name="p_code" type="NVARCHAR(255)"/>
+            <column name="vip" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city_id" type="BIGINT">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+        <sql>
+            CREATE UNIQUE INDEX unique_constrain_person_cell_phone
+                ON dbo.person(cell_phone)
+                WHERE cell_phone IS NOT NULL;
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

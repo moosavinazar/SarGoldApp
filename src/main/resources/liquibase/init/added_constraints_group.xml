@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="SAR SOFT" id="constraints_group">
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="uniqueConstraint-name-auth_group"
+                tableName="auth_group"/>
+        <addForeignKeyConstraint
+                baseColumnNames="group_id"
+                baseTableName="auth_group_permissions"
+                constraintName="foreignKeyConstraint-group_id-auth_group_permissions-id-auth_group"
+                deferrable="false"
+                initiallyDeferred="false"
+                onDelete="NO ACTION"
+                onUpdate="NO ACTION"
+                referencedColumnNames="id"
+                referencedTableName="auth_group"
+                validate="true"/>
+        <addForeignKeyConstraint
+                baseColumnNames="permissions_id"
+                baseTableName="auth_group_permissions"
+                constraintName="foreignKeyConstraint-permissions_id-auth_group_permissions-id-auth_permission"
+                deferrable="false"
+                initiallyDeferred="false"
+                onDelete="NO ACTION"
+                onUpdate="NO ACTION"
+                referencedColumnNames="id"
+                referencedTableName="auth_permission"
+                validate="true"/>
+
+    </changeSet>
+
+</databaseChangeLog>

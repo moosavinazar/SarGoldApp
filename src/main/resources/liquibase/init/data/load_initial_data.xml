@@ -1,0 +1,91 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="SAR SOFT" id="1627418209375-1">
+
+        <loadData
+                file="liquibase/init/data/city.csv"
+                separator=";"
+                tableName="city">
+            <column name="id" type="numeric"/>
+            <column name="name" type="text"/>
+            <column name="code" type="text"/>
+        </loadData>
+
+        <loadData
+                file="liquibase/init/data/person.csv"
+                separator=";"
+                tableName="person">
+            <column name="id" type="numeric"/>
+            <column name="name" type="text"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="email" type="text"/>
+            <column name="gender" type="text"/>
+            <column name="cell_phone" type="text"/>
+            <column name="phone_number" type="text"/>
+            <column name="address" type="text"/>
+            <column name="description" type="text"/>
+            <column name="p_code" type="text"/>
+            <column name="vip" type="boolean"/>
+        </loadData>
+
+        <loadData
+                file="liquibase/init/data/audience.csv"
+                separator=";"
+                tableName="audience">
+            <column name="id" type="numeric"/>
+            <column name="person_id" type="numeric"/>
+            <column name="bank_id" type="numeric"/>
+            <column name="laboratory_id" type="numeric"/>
+        </loadData>
+
+        <loadData
+                file="liquibase/init/data/permission.csv"
+                separator=";"
+                tableName="auth_permission">
+            <column name="id" type="numeric"/>
+            <column name="name" type="text"/>
+        </loadData>
+
+        <loadData
+                file="liquibase/init/data/group.csv"
+                separator=";"
+                tableName="auth_group">
+            <column name="id" type="numeric"/>
+            <column name="name" type="text"/>
+        </loadData>
+        <loadData
+                file="liquibase/init/data/group_permissions.csv"
+                separator=";"
+                tableName="auth_group_permissions">
+            <column name="group_id" type="numeric"/>
+            <column name="permissions_id" type="numeric"/>
+        </loadData>
+
+        <loadData
+                file="liquibase/init/data/user.csv"
+                separator=";"
+                tableName="auth_user">
+            <column name="id" type="numeric"/>
+            <column name="username" type="text"/>
+            <column name="password" type="text"/>
+            <column name="locked" type="boolean"/>
+            <column name="enabled" type="boolean"/>
+            <column name="expired" type="datetime"/>
+            <column name="credential" type="boolean"/>
+            <column name="person_id" type="numeric"/>
+        </loadData>
+
+        <loadData
+                file="liquibase/init/data/user_group.csv"
+                separator=";"
+                tableName="auth_user_groups">
+            <column name="user_id" type="numeric"/>
+            <column name="groups_id" type="numeric"/>
+        </loadData>
+
+    </changeSet>
+
+</databaseChangeLog>

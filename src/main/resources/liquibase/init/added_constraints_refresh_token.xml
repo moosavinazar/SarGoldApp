@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="SAR SOFT" id="constraints_refresh_token">
+        <addForeignKeyConstraint
+                baseColumnNames="user_id"
+                baseTableName="auth_refresh_token"
+                constraintName="foreignConstraint-user_id-refresh_token-id-user"
+                deferrable="false"
+                initiallyDeferred="false"
+                onDelete="NO ACTION"
+                onUpdate="NO ACTION"
+                referencedColumnNames="id"
+                referencedTableName="auth_user"
+                validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>
