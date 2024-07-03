@@ -1,63 +1,45 @@
-package com.sar.goldapp.service.dto;
+package com.sar.goldapp.service.dto.authentication;
 
 import com.sar.goldapp.model.enumeration.GenderEnum;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
-public class PersonDTO {
+public class CreateUserDTO {
 
-    private long id;
-
+    private Set<Long> groupIds = new HashSet<>();
     private String name;
-
     private LocalDate dateOfBirth;
 
-    private GenderEnum genderEnum;
+    private GenderEnum gender;
 
     private String email;
 
     private String cellPhone;
 
     private String phoneNumberOne;
-
     private String phoneNumberTwo;
-
     private String phoneNumberThree;
 
     private String address;
 
+    private long cityId;
+
     private String description;
+
+    private String username;
+
+    private String password;
 
     private boolean vip;
 
-    private long cityId;
-
-    public PersonDTO() {
+    public Set<Long> getGroupIds() {
+        return groupIds;
     }
 
-    public PersonDTO(String name, LocalDate dateOfBirth, GenderEnum genderEnum, String email, String cellPhone,
-                     String phoneNumberOne, String phoneNumberTwo, String phoneNumberThree,
-                     String address, long cityId, String description, boolean vip) {
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.genderEnum = genderEnum;
-        this.email = email;
-        this.cellPhone = cellPhone;
-        this.phoneNumberOne = phoneNumberOne;
-        this.phoneNumberTwo = phoneNumberTwo;
-        this.phoneNumberThree = phoneNumberThree;
-        this.address = address;
-        this.cityId = cityId;
-        this.description = description;
-        this.vip = vip;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setGroupIds(Set<Long> groupIds) {
+        this.groupIds = groupIds;
     }
 
     public String getName() {
@@ -77,11 +59,11 @@ public class PersonDTO {
     }
 
     public GenderEnum getGender() {
-        return genderEnum;
+        return gender;
     }
 
-    public void setGender(GenderEnum genderEnum) {
-        this.genderEnum = genderEnum;
+    public void setGender(GenderEnum gender) {
+        this.gender = gender;
     }
 
     public String getEmail() {
@@ -132,12 +114,36 @@ public class PersonDTO {
         this.address = address;
     }
 
+    public long getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(long cityId) {
+        this.cityId = cityId;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isVip() {
@@ -148,21 +154,13 @@ public class PersonDTO {
         this.vip = vip;
     }
 
-    public long getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(long cityId) {
-        this.cityId = cityId;
-    }
-
     @Override
     public String toString() {
-        return "PersonDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+        return "CreateUserDTO{" +
+                ", groupIds=" + groupIds +
+                ", name=" + name +
                 ", dateOfBirth=" + dateOfBirth +
-                ", genderEnum=" + genderEnum +
+                ", gender=" + gender +
                 ", email='" + email + '\'' +
                 ", cellPhone='" + cellPhone + '\'' +
                 ", phoneNumberOne='" + phoneNumberOne + '\'' +
@@ -171,8 +169,9 @@ public class PersonDTO {
                 ", address='" + address + '\'' +
                 ", cityId=" + cityId +
                 ", description='" + description + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", vip=" + vip +
                 '}';
     }
-
 }

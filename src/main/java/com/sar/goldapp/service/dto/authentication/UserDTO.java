@@ -21,8 +21,6 @@ public class UserDTO {
 
     private boolean enable;
 
-    private String code;
-
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "UTC")
     private Instant expired = ZonedDateTime.now().plusYears(1L).toInstant();
 
@@ -37,8 +35,7 @@ public class UserDTO {
     }
 
     public UserDTO(long id, String username, String password, boolean lock, boolean enable, Instant expired,
-                   boolean credential, Set<GroupDTO> groups, PersonDTO person,
-                   String code) {
+                   boolean credential, Set<GroupDTO> groups, PersonDTO person) {
         this.id = id;
         this.username = username;
         this.lock = lock;
@@ -47,7 +44,6 @@ public class UserDTO {
         this.credential = credential;
         this.groups = groups;
         this.person = person;
-        this.code = code;
     }
 
     public long getId() {
@@ -88,14 +84,6 @@ public class UserDTO {
 
     public void setEnable(boolean enable) {
         this.enable = enable;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public Instant getExpired() {
@@ -145,7 +133,6 @@ public class UserDTO {
                 ", username='" + username + '\'' +
                 ", lock=" + lock +
                 ", enable=" + enable +
-                ", code=" + code +
                 ", expired=" + expired +
                 ", credential=" + credential +
                 ", groups=" + groups +
